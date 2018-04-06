@@ -1,8 +1,10 @@
 const express = require('express');
+const { promises, observable, async } = require('./controllers');
 
 const app = express();
-
-const { promises, observable, async } = require('./controllers');
+app.set('case sensitive routing', true);
+app.enable('etag');
+app.disable('x-powered-by');
 
 app.engine('pug', require('pug').__express)
 
@@ -19,6 +21,7 @@ const render = (req, res) => {
 app.get('/promises', promises, render);
 app.get('/observable', observable, render);
 app.get('/async', async, render);
+
 
 app.listen(8000, () => {
     console.log('listening on port 8000');
