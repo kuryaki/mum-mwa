@@ -1,12 +1,12 @@
 const server = require('http').createServer();
 const { fork } = require('child_process');
 
-const url = require('url');
-const querystring = require('querystring');
+const { parse } = require('url');
+// const querystring = require('querystring');
 
 server.on('request', (req, res) => {
 
-    const path = querystring.parse(url.parse(req.url).query).url;
+    const { query: { url: path } } = parse(req.url, true);
 
     const opts = {
         detached: true,
