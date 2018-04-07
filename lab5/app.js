@@ -6,7 +6,8 @@ app.set('case sensitive routing', true);
 app.enable('etag');
 app.disable('x-powered-by');
 
-app.engine('pug', require('pug').__express)
+app.engine('pug', require('pug').__express);
+app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
