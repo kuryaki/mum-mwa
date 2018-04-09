@@ -1,0 +1,15 @@
+{
+    "ISBN": "123",
+    "author": "me",
+    "tags": [
+        "tag1"
+    ],
+    "borrow": {
+        "date": "",
+        "return_date": "",
+        "borrowed_by": {
+            "$ref": "student",
+            "id": "student_id"
+        }
+    }
+}
