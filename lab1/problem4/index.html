@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1 - Problem 4</title>
+</head>
+<body>
+<h3>BMI Calculator</h3>
+<label><input type="radio" name="unit" value="metric"/> Metric</label>
+<label><input type="radio" name="unit" value="english"/> English</label>
+<input type="number" name="height" placeholder="Enter your height"/>
+<input type="number" name="weight" placeholder="Enter your weight"/>
+<button id="calculate">Calculate</button>
+<div id="output"></div>
+</body>
+<script>
+    window.onload = function () {
+        class BMICalculator {
+            constructor() {
+                const radioButtons = document.getElementsByName("unit");
+                let radioBtnValue;
+                for (let i = 0; i < radioButtons.length; i++) {
+                    if (radioButtons[i].checked) {
+                        radioBtnValue = radioButtons[i].value;
+                    }
+                }
+
+                this.height = parseInt(document.getElementsByName("height")[0].value);
+                this.weight = parseInt(document.getElementsByName("weight")[0].value);
+                this.unit = radioBtnValue;
+
+                if (this.unit === "english") {
+                    this.height = this.height * 0.0254;
+                    this.weight = this.weight * 0.4536;
+                }
+            }
+
+            validate() {
+                return !(isNaN(this.height) || isNaN(this.weight) || this.unit === undefined);
+            }
+
+            calculate() {
+                const bmi = this.weight / (this.height * this.height);
+                let outputField = document.getElementById("output");
+                outputField.innerText += outputField.innerText + bmi.toFixed(2);
+
+                if(bmi < 18.5) {
+                    outputField.innerText += outputField.innerText + " - Underweight";
+                } else if(bmi < 25) {
+                    outputField.innerText += outputField.innerText + " - Normal";
+                } else if(bmi < 30) {
+                    outputField.innerText += outputField.innerText + " - Overweight";
+                } else {
+                    outputField.innerText += outputField.innerText + " - Obese";
+                }
+            }
+        }
+
+        document.getElementById("calculate").onclick = function () {
+            const calculator = new BMICalculator();
+            calculator.validate() ? calculator.calculate() : alert("Invalid Input!");
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1 - Problem 6</title>
+</head>
+<body>
+
+</body>
+<script>
+    String.prototype.filter = function (array) {
+        newStr = this;
+        array.forEach(word => newStr = newStr.replace(word, "***"));
+        return newStr;
+    };
+
+    console.log("This house is nice!".filter(['house', 'nice']));
+</script>
+</html>

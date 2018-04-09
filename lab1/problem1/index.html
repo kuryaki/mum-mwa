@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1 - Problem 1</title>
+</head>
+<body>
+<ul>
+    <li data-time="5:17">ECMA6 Video</li>
+    <li data-time="8:22">Node Video</li>
+    <li data-time="3:34">Node Video</li>
+    <li data-time="4:29">ECMA6 Video</li>
+</ul>
+</body>
+<script>
+    const items = Array.from(document.querySelectorAll('[data-time]'));
+    const totalSeconds = items.filter(obj => obj.innerHTML.includes("ECMA6")).map(obj => obj.getAttribute("data-time")).map(time => {
+        const times = time.split(":");
+        return parseInt(times[0] * 60) + parseInt(times[1]);
+    }).reduce((sum, second) => sum += second, 0);
+    console.log(totalSeconds);
+</script>
+</html>

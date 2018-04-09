@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1 - Problem 5</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person(name) {
+        this.name = name;
+    }
+
+    let TeacherA = new Person("Asaad"), TeacherB = new Person("Sulav");
+    Person.prototype.teach = function (subject) {
+        console.log(this.name + " is now teaching " + subject);
+    }
+
+    TeacherA.teach("MWA");
+    TeacherB.teach("Android");
+</script>
+</html>

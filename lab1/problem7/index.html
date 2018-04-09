@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1 - Problem 7</title>
+</head>
+<body>
+
+</body>
+<script>
+    Array.prototype.bubbleSort = function () {
+        for (let i = 0; i < this.length - 1; i++) {
+            let swapped = false;
+            for (let j = i; j < this.length; j++) {
+                if (this[i] > this[j]) {
+                    [this[i], this[j]] = [this[j], this[i]];
+                    swapped = true;
+                }
+            }
+            if (!swapped) break;
+        }
+        return this;
+    };
+    console.log([6, 4, 0, 3, -2, 1].bubbleSort());
+</script>
+</html>

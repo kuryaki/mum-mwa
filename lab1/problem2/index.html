@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1 - Problem 2</title>
+</head>
+<body>
+
+</body>
+<script>
+    var library = [
+        {prof: 'Asaad Saad', course: 'WAP', courseID: 'CS452'},
+        {prof: 'Rakesh Shrestha', course: 'WAA', courseID: 'CS545'},
+        {prof: 'Steve Nolle', course: 'SWE', courseID: 'CS425'}
+    ];
+
+    library.sort((obj1, obj2) => obj1.course>obj2.course);
+    console.log(JSON.stringify(library));
+</script>
+</html>
