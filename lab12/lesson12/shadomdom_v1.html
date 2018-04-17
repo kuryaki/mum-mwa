@@ -1,0 +1,20 @@
+<html>
+
+<head></head>
+
+<body>
+    <p>Normal Node1</p>
+    <p id="hostElement">Light DOM</p>
+    <p>Normal Node2</p>
+    <script> 
+        var e = document.querySelector('#hostElement');
+
+        var shadowRoot = e.attachShadow({ mode: 'open' }); // v1
+        shadowRoot.innerHTML = `<style> 
+					 p { color: red; } 
+				        </style>
+				        <p>Shadow DOM!</p>` ;
+    </script>
+</body>
+
+</html>
